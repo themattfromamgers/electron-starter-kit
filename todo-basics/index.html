@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Electron Starter Kit</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<h1>Electron Starter Kits</h1>
+		<input type="text" id="username">
+		<button id="sendBtn" type="submit">xasdpadsa</button>
+		
+		
+		<button id="yenipencere">yeni pencere</button>
+		
+		
+		
+	<script>
+	
+	const electron = require('electron')
+	const { ipcRenderer } = electron;
+		let sendBtn = document.querySelector('#sendBtn')
+		let username = document.querySelector('#username')
+		let yenipencere = document.querySelector('#yenipencere')
+
+		yenipencere.addEventListener("click",()=>{
+		ipcRenderer.send("yenipencereac")
+		})
+		sendBtn.addEventListener("click", ()=>{
+			//ipcRenderer.send("xd", "anan")
+			ipcRenderer.send("username", username.value)
+		})
+	</script>
+		
+	</body>
+</html>
